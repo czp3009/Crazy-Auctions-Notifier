@@ -1,0 +1,8 @@
+name: CrazyAuctionsNotifier
+version: 0.0.1
+author: czp3009
+main: com.hiczp.spigot.crazyauctionsnotifier.Main
+api-version: "1.15"
+depend: ["CrazyAuctions"]
+website: https://github.com/czp3009/Crazy-Auctions-Notifier
+description: "Send notification to all players when Crazy-Auctions triggers event"

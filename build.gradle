@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+group 'com.hiczp.spigot.crazyauctionsnotifier'
+version '0.0.1'
+description 'Send notification to all players when Crazy-Auctions triggers event'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven {
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+        content {
+            includeGroup 'org.bukkit'
+            includeGroup 'org.spigotmc'
+        }
+    }
+    maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' }
+    maven { url 'https://jitpack.io' }
+}
+
+//spigot
+dependencies {
+    implementation 'org.spigotmc:spigot-api:1.15.2-R0.1-SNAPSHOT'
+}
+
+//CrazyAuctions
+dependencies {
+    implementation 'com.github.badbones69:Crazy-Auctions:v1.2.12'
+}
