@@ -30,3 +30,8 @@ dependencies {
 dependencies {
     implementation 'com.github.badbones69:Crazy-Auctions:v1.2.12'
 }
+
+//Vault
+dependencies {
+    implementation 'com.github.MilkBowl:VaultAPI:1.7'
+}

@@ -1,0 +1,6 @@
+onSell:
+  enable: true
+  format: "${seller} sells ${itemName} * ${itemAmount} for ${price}(${currencyName}) to auction house"
+onBuy:
+  enable: true
+  format: "${buyer} buy ${itemName} * ${itemAmount} for ${price}(${currencyName}) from auction house"

@@ -3,6 +3,16 @@ version: 0.0.1
 author: czp3009
 main: com.hiczp.spigot.crazyauctionsnotifier.Main
 api-version: "1.15"
-depend: ["CrazyAuctions"]
+depend: ["CrazyAuctions","Vault"]
 website: https://github.com/czp3009/Crazy-Auctions-Notifier
 description: "Send notification to all players when Crazy-Auctions triggers event"
+commands:
+  crazyauctionsnotifier:
+    aliases: [can]
+    usage: /<command> reload
+    permission: crazyauctionsnotifier.reload
+    description: Reload CrazyAuctionsNotifier.
+permissions:
+  crazyauctionsnotifier.reload:
+    description: Allows reloading of CrazyAuctionsNotifier.
+    default: op
