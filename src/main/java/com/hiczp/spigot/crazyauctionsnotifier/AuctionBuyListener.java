@@ -1,7 +1,6 @@
 package com.hiczp.spigot.crazyauctionsnotifier;
 
 import me.badbones69.crazyauctions.api.events.AuctionBuyEvent;
-import net.milkbowl.vault.economy.Economy;
 import org.apache.commons.lang.text.StrSubstitutor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,9 +11,13 @@ import java.util.Map;
 
 public class AuctionBuyListener implements Listener {
     private JavaPlugin plugin;
+    private String format;
+    private String currencyName;
 
-    public AuctionBuyListener(JavaPlugin plugin) {
+    public AuctionBuyListener(JavaPlugin plugin, String format, String currencyName) {
         this.plugin = plugin;
+        this.format = format;
+        this.currencyName = currencyName;
     }
 
     @SuppressWarnings("DuplicatedCode")
@@ -25,11 +28,8 @@ public class AuctionBuyListener implements Listener {
         values.put("itemName", event.getItem().getType().name());
         values.put("itemAmount", Integer.toString(event.getItem().getAmount()));
         values.put("price", Long.toString(event.getPrice()));
-        //noinspection ConstantConditions
-        values.put("currencyName",
-                plugin.getServer().getServicesManager().getRegistration(Economy.class).getProvider().currencyNamePlural()
-        );
-        String message = StrSubstitutor.replace(plugin.getConfig().getString("onBuy.format"), values);
+        values.put("currencyName", currencyName);
+        String message = StrSubstitutor.replace(format, values);
         plugin.getServer().broadcastMessage(message);
     }
 }

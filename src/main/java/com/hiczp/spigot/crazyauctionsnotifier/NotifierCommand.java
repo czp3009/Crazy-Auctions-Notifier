@@ -3,15 +3,14 @@ package com.hiczp.spigot.crazyauctionsnotifier;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
-import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Collections;
 import java.util.List;
 
 public class NotifierCommand implements TabExecutor {
-    private JavaPlugin plugin;
+    private Main plugin;
 
-    public NotifierCommand(JavaPlugin plugin) {
+    public NotifierCommand(Main plugin) {
         this.plugin = plugin;
     }
 
@@ -30,7 +29,7 @@ public class NotifierCommand implements TabExecutor {
             sender.sendMessage("/crazyauctionsnotifier reload - Reload config file");
             return true;
         }
-        plugin.reloadConfig();
+        plugin.reload();
         sender.sendMessage(plugin.getName() + " Reloaded");
         return true;
     }
