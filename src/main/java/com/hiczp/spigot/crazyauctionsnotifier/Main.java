@@ -13,16 +13,16 @@ public class Main extends JavaPlugin {
 
     @SuppressWarnings("ConstantConditions")
     private void start() {
-        String currencyName = getServer().getServicesManager().getRegistration(Economy.class).getProvider().currencyNamePlural();
+        Economy economy = getServer().getServicesManager().getRegistration(Economy.class).getProvider();
 
         ConfigurationSection onSell = getConfig().getConfigurationSection("onSell");
         if (onSell.getBoolean("enable")) {
-            listListener = new AuctionListListener(this, onSell.getString("format"), currencyName);
+            listListener = new AuctionListListener(this, onSell.getString("format"), economy);
             getServer().getPluginManager().registerEvents(listListener, this);
         }
         ConfigurationSection onBuy = getConfig().getConfigurationSection("onBuy");
         if (onBuy.getBoolean("enable")) {
-            buyListener = new AuctionBuyListener(this, onBuy.getString("format"), currencyName);
+            buyListener = new AuctionBuyListener(this, onBuy.getString("format"), economy);
             getServer().getPluginManager().registerEvents(buyListener, this);
         }
     }

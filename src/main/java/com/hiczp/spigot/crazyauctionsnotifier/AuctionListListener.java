@@ -1,6 +1,7 @@
 package com.hiczp.spigot.crazyauctionsnotifier;
 
 import me.badbones69.crazyauctions.api.events.AuctionListEvent;
+import net.milkbowl.vault.economy.Economy;
 import org.apache.commons.lang.text.StrSubstitutor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,12 +13,12 @@ import java.util.Map;
 public class AuctionListListener implements Listener {
     private JavaPlugin plugin;
     private String format;
-    private String currencyName;
+    private Economy economy;
 
-    public AuctionListListener(JavaPlugin plugin, String format, String currencyName) {
+    public AuctionListListener(JavaPlugin plugin, String format, Economy economy) {
         this.plugin = plugin;
         this.format = format;
-        this.currencyName = currencyName;
+        this.economy = economy;
     }
 
     @SuppressWarnings("DuplicatedCode")
@@ -28,7 +29,7 @@ public class AuctionListListener implements Listener {
         values.put("itemName", event.getItem().getType().name());
         values.put("itemAmount", Integer.toString(event.getItem().getAmount()));
         values.put("price", Long.toString(event.getPrice()));
-        values.put("currencyName", currencyName);
+        values.put("currencyName", economy.currencyNamePlural());
         String message = StrSubstitutor.replace(format, values);
         plugin.getServer().broadcastMessage(message);
     }
