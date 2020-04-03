@@ -25,8 +25,7 @@ public class NotifierCommand implements TabExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length != 1 || !args[0].equalsIgnoreCase("reload")) {
-            //noinspection SpellCheckingInspection
-            sender.sendMessage("/crazyauctionsnotifier reload - Reload config file");
+            sender.sendMessage(String.format("/%s reload - Reload config file", label));
             return true;
         }
         plugin.reload();

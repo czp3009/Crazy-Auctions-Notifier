@@ -1,5 +1,5 @@
 name: CrazyAuctionsNotifier
-version: 0.0.1
+version: 0.0.3
 author: czp3009
 main: com.hiczp.spigot.crazyauctionsnotifier.Main
 api-version: "1.15"

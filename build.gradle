@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'com.hiczp.spigot.crazyauctionsnotifier'
-version '0.0.2'
+version '0.0.3'
 description 'Send notification to all players when Crazy-Auctions triggers event'
 
 sourceCompatibility = 1.8
